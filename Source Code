@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class RandomSpawn : MonoBehaviour
+{
+    public float xRange = 5f;
+    public float yRange = 0.5f;
+    private Vector2 randomPosition;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        float xPosition = Random.Range(-xRange, xRange);
+        float yPosition = Random.Range(4.75f, 4.75f + yRange);
+        randomPosition = new Vector2(xPosition, yPosition);
+        transform.position = randomPosition;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Space)) // Detecta la barra espaciadora
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+}
+
